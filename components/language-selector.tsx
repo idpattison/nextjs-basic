@@ -4,16 +4,20 @@ import React from 'react';
 import { useState } from "react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
 
+// Define a type for the supported languages
+type Language = 'English' | 'French' | 'Spanish';
+
+// Define the greetings object with the correct type
+const greetings: Record<Language, string> = {
+  English: "Hello World",
+  French: "Bonjour le Monde",
+  Spanish: "Hola Mundo"
+};
+
 export function LanguageSelector() {
-  const [selectedLanguage, setSelectedLanguage] = useState("English")
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>("English")
 
-  const greetings = {
-    English: "Hello World",
-    French: "Bonjour le Monde",
-    Spanish: "Hola Mundo"
-  }
-
-  const handleLanguageChange = (value: string) => {
+  const handleLanguageChange = (value: Language) => {
     setSelectedLanguage(value)
   }
 
